@@ -6,8 +6,12 @@ android {
     compileSdkVersion 29
     buildToolsVersion "29.0.3"
 
+    buildFeatures {
+        viewBinding = true
+    }
+
     defaultConfig {
-        applicationId "com.example.emptyactivity"
+        applicationId "com.example.MadLevel2Task1"
         minSdkVersion 23
         targetSdkVersion 29
         versionCode 1
