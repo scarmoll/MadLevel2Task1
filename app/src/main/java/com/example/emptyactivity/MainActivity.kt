@@ -137,6 +137,7 @@ class PlaceAdapter(private val place: List<Place>) :
 
         fun databind(place: Place) {
             binding.tvPlace.text = place.name
+            binding.ivPlace.setImageResource(place.imageResId)
         }
     }
 
