@@ -6,10 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.DrawableRes
-import androidx.recyclerview.widget.DividerItemDecoration
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import androidx.recyclerview.widget.StaggeredGridLayoutManager
+import androidx.recyclerview.widget.*
 import com.example.MadLevel2Task1.databinding.ActivityMainBinding
 import com.example.MadLevel2Task1.databinding.ItemPlaceBinding
 
@@ -29,27 +26,15 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun initViews() {
-//            binding.rvPlace.layoutManager = StaggeredGridLayoutManager(this@MainActivity, RecyclerView.VERTICAL, false)
-//            binding.rvPlace.adapter = placeAdapter
-//            binding.rvPlace.addItemDecoration(DividerItemDecoration(this@MainActivity, DividerItemDecoration.VERTICAL))
-
-        binding.rvPlace.layoutManager = LinearLayoutManager(this@MainActivity, RecyclerView.VERTICAL, false)
-//        binding.rvPlace.layoutManager = StaggeredGridLayoutManager(this@MainActivity, RecyclerView.VERTICAL, false)
+        binding.rvPlace.layoutManager = StaggeredGridLayoutManager(2,1)
 
         binding.rvPlace.adapter = placeAdapter
-
-        binding.rvPlace.addItemDecoration(
-                DividerItemDecoration(
-                        this@MainActivity,
-                        DividerItemDecoration.VERTICAL
-                )
-        )
 
         for (i in Place.PLACE_NAMES.indices) {
             place.add(Place(Place.PLACE_NAMES[i], Place.PLACE_RES_DRAWABLE_IDS[i]))
         }
-        placeAdapter.notifyDataSetChanged()
 
+        placeAdapter.notifyDataSetChanged()
     }
 }
 
